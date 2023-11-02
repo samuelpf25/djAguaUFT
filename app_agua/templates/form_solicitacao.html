@@ -1,0 +1,26 @@
+{% load static %}
+
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<div class="container">
+    <div class="media">
+        <img class="mr-3" src="{% static 'images/logo.png' %}" alt="Generic placeholder image">
+        <h1>COINFRA-UFT</h1>
+    </div>
+
+    <h2><div class="alert alert-dark" role="alert">Solicitação de Galão de Água</div></h2>
+
+    <form action="{% url 'form_solicitacao' %}" method="POST" class="form" autocomplete="off">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        {% endbuttons %}
+    </form>
+</div>
